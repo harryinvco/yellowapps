@@ -1,0 +1,333 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║          WhatsApp Pharmacy Bot - Visual Demonstration            ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+📱 CHAT INTERFACE PREVIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ← PharmaCare Assistant ●  online              🛒(2)  ⋮         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────────────────────┐                      │
+│  │ Hello! 👋 I'm your PharmaCare       │                      │
+│  │ assistant. How can I help you       │   Bot Message        │
+│  │ today?                              │                      │
+│  │                            Just now │                      │
+│  └─────────────────────────────────────┘                      │
+│                                                                 │
+│                      ┌──────────────────────────┐              │
+│                      │ I have a bad headache    │ User Message │
+│                      │                  12:34 ✓✓│              │
+│                      └──────────────────────────┘              │
+│                                                                 │
+│  ┌─────────────────────────────────────┐                      │
+│  │ Sorry to hear you have a headache!  │                      │
+│  │ 😔                                   │   Bot Response       │
+│  │                                      │   with AI            │
+│  │ I recommend Paracetamol 500mg       │                      │
+│  │ ($8.99) - it provides fast relief   │                      │
+│  │ and is gentle on your stomach.      │                      │
+│  │ Perfect for headaches! 💊            │                      │
+│  │                                      │                      │
+│  │ If the pain is severe, Ibuprofen    │                      │
+│  │ 400mg ($12.99) is stronger and      │                      │
+│  │ also reduces inflammation.           │                      │
+│  │                                      │                      │
+│  │ You'll see these products below -   │                      │
+│  │ just tap 'Buy Now'! We deliver in   │                      │
+│  │ 2-3 hours. 🚚                        │                      │
+│  │                            12:34 ✓✓ │                      │
+│  └─────────────────────────────────────┘                      │
+│                                                                 │
+│  ╔═════════════════════════════════════╗                      │
+│  ║ 💊  Paracetamol 500mg              ║  ← Inline Product   │
+│  ║                                     ║    Card #1           │
+│  ║ Fast relief from headaches, fever   ║                      │
+│  ║ & body pain                         ║                      │
+│  ║                                     ║                      │
+│  ║ $8.99            [🛒 Buy Now]       ║  ← Buy Button       │
+│  ╚═════════════════════════════════════╝                      │
+│                                                                 │
+│  ╔═════════════════════════════════════╗                      │
+│  ║ 🔥  Ibuprofen 400mg                ║  ← Inline Product   │
+│  ║                                     ║    Card #2           │
+│  ║ Strong anti-inflammatory for        ║                      │
+│  ║ muscle & joint pain                 ║                      │
+│  ║                                     ║                      │
+│  ║ $12.99           [🛒 Buy Now]       ║  ← Buy Button       │
+│  ╚═════════════════════════════════════╝                      │
+│                                                                 │
+│  ┌─────────────────────────────────────┐                      │
+│  │ 🤕 Headache  💊 Vitamins  🤧 Cold   │  Quick Replies       │
+│  └─────────────────────────────────────┘                      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  +  Type a message...                           😊  🎤  ➤      │
+└─────────────────────────────────────────────────────────────────┘
+
+
+🎯 KEY FEATURES SHOWN ABOVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ✅ WHATSAPP-STYLE HEADER
+   - PharmaCare Assistant name
+   - Online status indicator
+   - Cart icon with badge (2 items)
+   - Menu button
+
+2. ✅ AI-POWERED RESPONSE
+   - Empathetic greeting ("Sorry to hear...")
+   - **Bold product names** (Paracetamol, Ibuprofen)
+   - Specific prices ($8.99, $12.99)
+   - Helpful advice
+   - Emojis for engagement (😔 💊 🚚)
+   - Clear call-to-action
+
+3. ✅ INLINE PRODUCT CARDS
+   - Appear directly in chat flow
+   - Large emoji icon (💊 🔥)
+   - Product name prominently displayed
+   - Short description
+   - Price in bold
+   - Green "Buy Now" button
+   - Professional card design
+
+4. ✅ QUICK REPLIES
+   - Contextual suggestions
+   - Easy tap-to-send
+   - Common symptoms
+
+
+🌍 MULTILINGUAL EXAMPLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GREEKLISH INPUT
+┌─────────────────────────────────────────────────────────────────┐
+│                      ┌──────────────────────────┐              │
+│                      │ Exo ponokefalo           │ User         │
+│                      │                  12:35 ✓✓│              │
+│                      └──────────────────────────┘              │
+│                                                                 │
+│  ┌─────────────────────────────────────┐                      │
+│  │ Lypame pou exete ponokefalo! 😔     │                      │
+│  │                                      │   AI responds in     │
+│  │ Sas protino Paracetamol 500mg       │   SAME LANGUAGE      │
+│  │ ($8.99) - parehei grigori           │   (Greeklish)        │
+│  │ anakoufisi kai einai ipio gia to    │                      │
+│  │ stomahi. Idaniko gia ponokefalo! 💊 │                      │
+│  │                                      │                      │
+│  │ An o ponos einai entonos, to        │                      │
+│  │ Ibuprofen 400mg ($12.99) einai pio  │                      │
+│  │ dynato kai meionei tin flegmoni.    │                      │
+│  │                            12:35 ✓✓ │                      │
+│  └─────────────────────────────────────┘                      │
+│                                                                 │
+│  [Same product cards appear]                                   │
+└─────────────────────────────────────────────────────────────────┘
+
+
+💳 BUY NOW BUTTON INTERACTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BEFORE CLICK:
+╔═════════════════════════════════════╗
+║ 💊  Paracetamol 500mg              ║
+║ Fast relief from headaches          ║
+║ $8.99            [🛒 Buy Now]       ║  ← Green button
+╚═════════════════════════════════════╝
+
+USER CLICKS BUTTON
+       ↓
+    (vibrate)
+       ↓
+
+DURING/AFTER CLICK:
+╔═════════════════════════════════════╗
+║ 💊  Paracetamol 500mg              ║
+║ Fast relief from headaches          ║
+║ $8.99            [✓ Added]          ║  ← Darker green + ✓
+╚═════════════════════════════════════╝
+
+RESULT:
+- Cart badge updates: 🛒(2) → 🛒(3)
+- Button shows "✓ Added"
+- After 2 seconds, button resets to "🛒 Buy Now"
+
+
+🛒 SHOPPING CART VIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ← Your Cart                                           3 items   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  💊  Paracetamol 500mg                    ⊖  2  ⊕      🗑️      │
+│      $8.99 each                                                 │
+│                                                                 │
+│  🔥  Ibuprofen 400mg                      ⊖  1  ⊕      🗑️      │
+│      $12.99 each                                                │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                              Subtotal: $30.97   │
+│                                                    Tax: $2.48   │
+│                                           Delivery: $2.99       │
+│                                              ─────────────────  │
+│                                              Total: $36.44      │
+│                                                                 │
+│                    [💳 Checkout]                                │
+└─────────────────────────────────────────────────────────────────┘
+
+
+📋 CHECKOUT FORM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ← Checkout                                                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  📱 Contact Information                                         │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │ Full Name                                                │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │ Phone Number                                             │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │ Delivery Address                                         │  │
+│  │                                                           │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│  💳 Payment Method                                              │
+│  ⦿ 💰 Cash on Delivery                                         │
+│  ○ 💳 Credit/Debit Card                                        │
+│  ○ 📱 UPI Payment                                              │
+│                                                                 │
+│  📋 Order Summary                                               │
+│  💊 Paracetamol 500mg × 2              $17.98                  │
+│  🔥 Ibuprofen 400mg × 1                $12.99                  │
+│  Delivery Fee                           $2.99                  │
+│  Tax                                    $2.48                  │
+│  ─────────────────────────────────────────────                 │
+│  Total: $36.44                                                 │
+│                                                                 │
+│                    [✓ Place Order]                             │
+└─────────────────────────────────────────────────────────────────┘
+
+
+✅ ORDER CONFIRMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│                          ✓                                      │
+│                                                                 │
+│                  Order Placed! 🎉                               │
+│                                                                 │
+│         Your order has been confirmed.                          │
+│                                                                 │
+│              Order ID: WP458392                                 │
+│                                                                 │
+│          We'll deliver within 2-3 hours.                        │
+│                                                                 │
+│                                                                 │
+│               [Continue Shopping]                               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+
+🎨 DESIGN HIGHLIGHTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COLOR PALETTE:
+- WhatsApp Green:  #25D366  (primary)
+- WhatsApp Dark:   #128C7E  (hover)
+- User Bubble:     #DCF8C6  (light green)
+- Bot Bubble:      #FFFFFF  (white)
+- Background:      #E5DDD5  (tan with pattern)
+- Header:          #075E54  (dark green)
+
+TYPOGRAPHY:
+- Font Family:     Roboto, -apple-system
+- Product Names:   Bold, 0.95rem
+- Prices:          Bold, 1.1rem, green
+- Descriptions:    Regular, 0.8rem, gray
+
+SPACING:
+- Card Padding:    1rem (16px)
+- Gap between:     0.75rem (12px)
+- Border Radius:   12px (rounded)
+- Button Padding:  0.75rem × 1.25rem
+
+ANIMATIONS:
+- Slide in:        0.3s ease-out
+- Button hover:    0.2s scale(1.05)
+- Button press:    0.2s scale(0.98)
+- Success fade:    2s transition
+
+
+📱 MOBILE VIEW (Optimized)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Same layout but:
+- Cards: 90% width (fits screen)
+- Font sizes: Slightly smaller
+- Touch targets: Minimum 44×44px
+- One-hand operation friendly
+- Haptic feedback on tap
+- PWA installable
+- Offline capable
+
+
+🚀 HOW TO SEE THIS LIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Start server:
+   $ cd whatsapp-pharmacy-bot
+   $ ./start.sh
+
+2. Open browser:
+   → http://localhost:3000
+
+3. Type message:
+   "I have a headache"
+
+4. See magic happen:
+   ✅ AI understands
+   ✅ Suggests products
+   ✅ Shows inline cards
+   ✅ Click Buy Now
+   ✅ Added to cart!
+
+5. Complete checkout:
+   → Click cart icon
+   → Review items
+   → Click Checkout
+   → Fill form
+   → Place Order
+   → Get confirmation!
+
+
+📊 FEATURES DEMONSTRATED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Multilingual AI (3 languages)
+✅ Smart symptom understanding
+✅ Inline product cards
+✅ One-click purchase
+✅ Visual feedback
+✅ Shopping cart
+✅ Checkout flow
+✅ Order confirmation
+✅ WhatsApp-style UI
+✅ Mobile responsive
+✅ PWA capabilities
+✅ Haptic feedback
+✅ Context awareness
+✅ Conversation memory
+✅ Quick replies
+
+
+╔═══════════════════════════════════════════════════════════════════╗
+║                    🎉 ENJOY YOUR DEMO! 🎉                         ║
+╚═══════════════════════════════════════════════════════════════════╝

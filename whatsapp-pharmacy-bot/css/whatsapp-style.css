@@ -1,0 +1,1501 @@
+/* WhatsApp Style CSS for Pharmacy Bot */
+
+:root {
+    --whatsapp-primary: #25D366;
+    --whatsapp-dark: #128C7E;
+    --whatsapp-light: #DCF8C6;
+    --whatsapp-bg: #E5DDD5;
+    --whatsapp-header: #075E54;
+    --user-bubble: #DCF8C6;
+    --bot-bubble: #FFFFFF;
+    --text-primary: #303030;
+    --text-secondary: #667781;
+    --text-light: #8696A0;
+    --border-color: #E9EDEF;
+    --shadow: 0 1px 2px rgba(0,0,0,0.15);
+    --input-bg: #F0F2F5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--whatsapp-bg);
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    height: 100vh;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* WhatsApp Container */
+.whatsapp-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 100vw;
+    background: var(--whatsapp-bg);
+    position: relative;
+}
+
+/* Header */
+.chat-header {
+    background: var(--whatsapp-header);
+    color: white;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.contact-details h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.125rem;
+}
+
+.online-status {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.online-status i {
+    color: var(--whatsapp-primary);
+    font-size: 0.6rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.header-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #FF4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* Chat Messages */
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.message-wrapper {
+    margin-bottom: 0.75rem;
+    display: flex;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.message-bubble {
+    max-width: 85%;
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    position: relative;
+    box-shadow: var(--shadow);
+    animation: messageSlide 0.3s ease-out;
+}
+
+@keyframes messageSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bot-message .message-bubble {
+    background: var(--bot-bubble);
+    border-bottom-left-radius: 4px;
+    color: var(--text-primary);
+}
+
+.user-message .message-bubble {
+    background: var(--user-bubble);
+    border-bottom-right-radius: 4px;
+    color: var(--text-primary);
+}
+
+.message-content p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.message-content ul {
+    margin: 0.5rem 0;
+    padding-left: 1.25rem;
+}
+
+.message-content li {
+    margin: 0.25rem 0;
+    line-height: 1.3;
+}
+
+.message-time {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--text-light);
+}
+
+.message-time i {
+    color: var(--whatsapp-primary);
+}
+
+.delivered {
+    color: #4FC3F7 !important;
+}
+
+.read {
+    color: var(--whatsapp-primary) !important;
+}
+
+/* Quick Replies */
+.quick-replies {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    padding: 0.25rem 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.quick-reply {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+}
+
+.quick-reply:hover, .quick-reply:active {
+    background: var(--whatsapp-light);
+    border-color: var(--whatsapp-primary);
+    transform: translateY(-1px);
+}
+
+/* Typing Indicator */
+.typing-indicator .message-bubble {
+    background: var(--bot-bubble);
+    padding: 1rem;
+    border-bottom-left-radius: 4px;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: var(--text-light);
+    border-radius: 50%;
+    animation: typingBounce 1.5s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingBounce {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Input Container */
+.input-container {
+    background: var(--input-bg);
+    padding: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.attachment-btn, .emoji-btn, .send-btn, .voice-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attachment-btn:hover, .emoji-btn:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.send-btn {
+    background: var(--whatsapp-primary);
+    color: white;
+}
+
+.send-btn:hover {
+    background: var(--whatsapp-dark);
+    transform: scale(1.05);
+}
+
+.voice-btn {
+    background: var(--whatsapp-primary);
+    color: white;
+}
+
+.text-input-container {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#messageInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: transparent;
+}
+
+#messageInput::placeholder {
+    color: var(--text-light);
+}
+
+/* Product Carousel */
+.product-carousel {
+    background: white;
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
+    max-height: 50vh;
+    overflow-y: auto;
+    animation: slideUpIn 0.3s ease-out;
+}
+
+@keyframes slideUpIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.carousel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.carousel-header h4 {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.close-carousel {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.close-carousel:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.carousel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.product-card {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #F8F9FA;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-color: var(--whatsapp-primary);
+}
+
+.product-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-name {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.product-description {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--whatsapp-primary);
+    font-size: 1rem;
+}
+
+.add-to-cart-btn {
+    background: var(--whatsapp-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-1px);
+}
+
+.add-to-cart-btn.added {
+    background: #4CAF50;
+}
+
+/* Cart Modal */
+.cart-modal, .checkout-modal, .success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.cart-modal.open, .checkout-modal.open, .success-modal.open {
+    transform: translateX(0);
+}
+
+.modal-header {
+    background: var(--whatsapp-header);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.modal-header h3 {
+    flex: 1;
+    font-weight: 500;
+}
+
+.cart-count {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+}
+
+.cart-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+
+.empty-cart i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F8F9FA;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-price {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+    background: var(--whatsapp-light);
+    border-color: var(--whatsapp-primary);
+}
+
+.quantity {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.cart-footer {
+    background: white;
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
+.total-section {
+    margin-bottom: 1rem;
+}
+
+.subtotal, .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.total {
+    font-size: 1.1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.checkout-btn {
+    width: 100%;
+    background: var(--whatsapp-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.checkout-btn:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-2px);
+}
+
+/* Checkout Form */
+.checkout-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h4 {
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-section h4 i {
+    color: var(--whatsapp-primary);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: white;
+    transition: all 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--whatsapp-primary);
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.payment-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.payment-option:hover {
+    border-color: var(--whatsapp-primary);
+    background: var(--whatsapp-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.payment-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.payment-icon {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #F8F9FA;
+    border-radius: 10px;
+}
+
+.payment-icon i {
+    font-size: 1.5rem;
+}
+
+.payment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.payment-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.payment-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.payment-check {
+    color: var(--whatsapp-primary);
+    font-size: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.payment-option input[type="radio"]:checked ~ .payment-check {
+    opacity: 1;
+}
+
+.payment-option:has(input[type="radio"]:checked) {
+    border-color: var(--whatsapp-primary);
+    background: var(--whatsapp-light);
+}
+
+.order-summary {
+    background: #F8F9FA;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-summary h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.order-summary h4 i {
+    color: var(--whatsapp-primary);
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.625rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.summary-total {
+    border-top: 2px solid var(--border-color);
+    padding-top: 0.875rem;
+    margin-top: 0.875rem;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+}
+
+.delivery-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.875rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.delivery-info i {
+    color: var(--whatsapp-primary);
+}
+
+.place-order-btn {
+    width: 100%;
+    background: var(--whatsapp-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1.125rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.place-order-btn:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.place-order-btn:active {
+    transform: translateY(0);
+}
+
+.secure-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: #F8F9FA;
+    border-radius: 8px;
+}
+
+.secure-checkout i {
+    color: #6C757D;
+}
+
+/* Success Modal */
+.success-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-primary);
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.success-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.success-content p {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.continue-btn {
+    background: var(--whatsapp-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s;
+}
+
+.continue-btn:hover {
+    background: var(--whatsapp-dark);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.3);
+}
+
+/* iOS/Mobile Specific */
+@supports (-webkit-touch-callout: none) {
+    .whatsapp-container {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .chat-messages {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 375px) {
+    .chat-header {
+        padding: 0.5rem;
+    }
+    
+    .contact-details h3 {
+        font-size: 1rem;
+    }
+    
+    .message-bubble {
+        max-width: 90%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .quick-reply {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+/* Inline Product Cards in Chat */
+.inline-products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
+    max-width: 95%;
+}
+
+.inline-product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.inline-product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.inline-product-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.inline-product-info {
+    width: 100%;
+}
+
+.inline-product-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+    min-height: 2.4em;
+}
+
+.inline-product-desc {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2em;
+}
+
+.inline-product-price {
+    font-weight: 700;
+    color: var(--whatsapp-primary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.inline-buy-btn {
+    background: var(--whatsapp-primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 211, 102, 0.3);
+}
+
+.inline-buy-btn:hover {
+    background: var(--whatsapp-dark);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
+}
+
+.inline-buy-btn:active {
+    transform: scale(0.98);
+}
+
+.inline-buy-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Mobile optimization for inline cards */
+@media (max-width: 768px) {
+    .inline-products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Checkout form responsive */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .payment-content {
+        gap: 0.75rem;
+    }
+
+    .payment-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.5rem;
+    }
+
+    .payment-icon i {
+        font-size: 1.25rem;
+    }
+
+    .payment-name {
+        font-size: 0.95rem;
+    }
+
+    .payment-description {
+        font-size: 0.8rem;
+    }
+
+    .checkout-content {
+        padding: 0.875rem;
+    }
+
+    .form-section {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .inline-products-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .inline-product-card {
+        padding: 0.5rem;
+    }
+
+    .inline-product-icon {
+        font-size: 2rem;
+    }
+
+    .inline-product-name {
+        font-size: 0.75rem;
+        min-height: 2.2em;
+    }
+
+    .inline-product-desc {
+        font-size: 0.65rem;
+        -webkit-line-clamp: 1;
+        min-height: 1.2em;
+    }
+
+    .inline-product-price {
+        font-size: 0.9rem;
+    }
+
+    .inline-buy-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animation for inline products appearing */
+.inline-products-container {
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced message content styling for product mentions */
+.message-content strong {
+    color: var(--whatsapp-primary);
+    font-weight: 600;
+}
+
+/* Better spacing for messages with products */
+.bot-message .message-bubble {
+    margin-bottom: 0.5rem;
+}
+
+.bot-message:has(+ .bot-message .inline-products-container) .message-bubble {
+    margin-bottom: 0.25rem;
+}
+
+/* WhatsApp Business Action Buttons */
+.whatsapp-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    max-width: 90%;
+}
+
+.wa-action-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--whatsapp-primary);
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.wa-action-btn:hover {
+    background: #f0f9f5;
+    border-color: var(--whatsapp-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(37,211,102,0.2);
+}
+
+.wa-action-btn:active {
+    transform: scale(0.98);
+}
+
+.wa-action-btn.primary {
+    background: var(--whatsapp-primary);
+    color: white;
+    border-color: var(--whatsapp-primary);
+}
+
+.wa-action-btn.primary:hover {
+    background: var(--whatsapp-dark);
+}
+
+/* WhatsApp Business Catalog View */
+.whatsapp-catalog {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 95%;
+}
+
+.catalog-header {
+    background: var(--whatsapp-primary);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.catalog-header i {
+    font-size: 1.2rem;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border-color);
+    padding: 1px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.catalog-item {
+    background: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.catalog-item:hover {
+    background: #f5f5f5;
+}
+
+.catalog-item-icon {
+    font-size: 2.5rem;
+}
+
+.catalog-item-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.3;
+    min-height: 2.6em;
+    color: var(--text-primary);
+}
+
+.catalog-item-price {
+    font-weight: 700;
+    color: var(--whatsapp-primary);
+    font-size: 1rem;
+}
+
+.catalog-buy-btn {
+    background: var(--whatsapp-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.catalog-buy-btn:hover {
+    background: var(--whatsapp-dark);
+    transform: scale(1.05);
+}
+
+.catalog-buy-btn:active {
+    transform: scale(0.95);
+}
+
+/* WhatsApp List Message */
+.whatsapp-list {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 90%;
+}
+
+.list-header {
+    background: #f0f2f5;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.list-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item:hover {
+    background: #f5f5f5;
+}
+
+.list-item:active {
+    background: #ebebeb;
+}
+
+.list-item-icon {
+    font-size: 2rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.list-item-content {
+    flex: 1;
+}
+
+.list-item-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.list-item-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.list-item i.fa-chevron-right {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .catalog-item-name {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .list-item {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-item {
+        padding: 0.75rem;
+    }
+
+    .catalog-item-icon {
+        font-size: 1.8rem;
+    }
+
+    .catalog-item-name {
+        font-size: 0.75rem;
+    }
+
+    .catalog-item-price {
+        font-size: 0.85rem;
+    }
+
+    .catalog-buy-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .list-item {
+        padding: 0.65rem;
+    }
+
+    .list-item-icon {
+        font-size: 1.5rem;
+        min-width: 35px;
+    }
+}
+
+/* Animations */
+.whatsapp-catalog, .whatsapp-list, .whatsapp-action-buttons {
+    animation: slideInUp 0.3s ease-out;
+}

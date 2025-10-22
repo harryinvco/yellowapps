@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PharmaCare - WhatsApp Bot</title>
+    <link rel="stylesheet" href="css/whatsapp-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#25D366">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PharmaCare">
+</head>
+<body>
+    <!-- WhatsApp Style Chat Interface -->
+    <div class="whatsapp-container">
+        
+        <!-- Header -->
+        <div class="chat-header">
+            <button class="back-btn" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="contact-info">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMyNUQzNjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPgo8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJTNi40OCwyMiAxMiwyMlMyMiAxNy41MiAyMiAxMlMxNy41MiwyIDEyIDJaTTEzIDEzSDExVjlIMTNWMTNaTTEzIDE3SDExVjE1SDEzVjE3WiIvPgo8L3N2Zz4KPC9zdmc+" alt="PharmaCare Bot" class="contact-avatar">
+                <div class="contact-details">
+                    <h3>PharmaCare Assistant</h3>
+                    <span class="online-status">
+                        <i class="fas fa-circle"></i>
+                        online
+                    </span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" id="catalogBtn" title="View Catalog">
+                    <i class="fas fa-store"></i>
+                </button>
+                <button class="header-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="header-btn">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Welcome Message -->
+            <div class="message-wrapper bot-message">
+                <div class="message-bubble">
+                    <div class="message-content">
+                        <p>Hello! 👋 I'm your PharmaCare assistant.</p>
+                        <p>How can I help you today? I can:</p>
+                        <ul>
+                            <li>💊 Recommend medications</li>
+                            <li>🔍 Help find products</li>
+                            <li>📋 Provide health info</li>
+                            <li>🛒 Process your order</li>
+                        </ul>
+                    </div>
+                    <div class="message-time">
+                        <span>Just now</span>
+                        <i class="fas fa-check-double delivered"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reply Suggestions -->
+            <div class="quick-replies" id="quickReplies">
+                <div class="quick-reply" data-message="I have a headache">
+                    🤕 Headache
+                </div>
+                <div class="quick-reply" data-message="I need vitamins">
+                    💊 Vitamins
+                </div>
+                <div class="quick-reply" data-message="Cold medicine">
+                    🤧 Cold & Flu
+                </div>
+                <div class="quick-reply" data-message="First aid">
+                    🩹 First Aid
+                </div>
+            </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="message-wrapper bot-message">
+                <div class="message-bubble typing">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <button class="attachment-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="text-input-container">
+                    <input type="text" id="messageInput" placeholder="Type a message...">
+                    <button class="emoji-btn">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                </div>
+                <button class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <button class="voice-btn" id="voiceBtn" style="display: none;">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Carousel (WhatsApp Style) -->
+        <div class="product-carousel" id="productCarousel" style="display: none;">
+            <div class="carousel-header">
+                <h4>Recommended for you</h4>
+                <button class="close-carousel" id="closeCarousel">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="carousel-content" id="carouselContent">
+                <!-- Products will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Shopping Cart Modal (WhatsApp Style) -->
+        <div class="cart-modal" id="cartModal" style="display: none;">
+            <div class="modal-header">
+                <button class="back-btn" id="closeCart">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3>Your Cart</h3>
+                <div class="cart-count">
+                    <span id="cartItemCount">0</span> items
+                </div>
+            </div>
+            <div class="cart-content" id="cartContent">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <span>Add some products to get started!</span>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="total-section">
+                    <div class="subtotal">
+                        <span>Subtotal: €<span id="subtotalAmount">0.00</span></span>
+                    </div>
+                    <div class="total">
+                        <strong>Total: €<span id="totalAmount">0.00</span></strong>
+                    </div>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+
+        <!-- Checkout Modal -->
+        <div class="checkout-modal" id="checkoutModal" style="display: none;">
+            <div class="modal-header">
+                <button class="back-btn" id="closeCheckout">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3>Checkout</h3>
+            </div>
+            <div class="checkout-content">
+                <form id="checkoutForm">
+                    <div class="form-section">
+                        <h4><i class="fas fa-user"></i> Contact Information</h4>
+                        <div class="form-group">
+                            <label for="customerName">Full Name *</label>
+                            <input type="text" id="customerName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail">Email Address *</label>
+                            <input type="email" id="customerEmail" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number *</label>
+                            <input type="tel" id="customerPhone" placeholder="+30 123 456 7890" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4><i class="fas fa-map-marker-alt"></i> Delivery Address</h4>
+                        <div class="form-group">
+                            <label for="customerAddress">Street Address *</label>
+                            <input type="text" id="customerAddress" placeholder="123 Main Street" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customerCity">City *</label>
+                                <input type="text" id="customerCity" placeholder="Athens" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customerPostal">Postal Code *</label>
+                                <input type="text" id="customerPostal" placeholder="10001" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryNotes">Delivery Notes (Optional)</label>
+                            <textarea id="deliveryNotes" placeholder="e.g., Ring doorbell, 2nd floor" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4><i class="fas fa-credit-card"></i> Payment Method</h4>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cod" checked>
+                                <div class="payment-content">
+                                    <span class="payment-icon">💰</span>
+                                    <div class="payment-details">
+                                        <div class="payment-name">Cash on Delivery</div>
+                                        <div class="payment-description">Pay when you receive</div>
+                                    </div>
+                                </div>
+                                <i class="fas fa-check-circle payment-check"></i>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card">
+                                <div class="payment-content">
+                                    <span class="payment-icon">💳</span>
+                                    <div class="payment-details">
+                                        <div class="payment-name">Credit/Debit Card</div>
+                                        <div class="payment-description">Visa, Mastercard, Amex</div>
+                                    </div>
+                                </div>
+                                <i class="fas fa-check-circle payment-check"></i>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="applepay">
+                                <div class="payment-content">
+                                    <span class="payment-icon"><i class="fab fa-apple"></i></span>
+                                    <div class="payment-details">
+                                        <div class="payment-name">Apple Pay</div>
+                                        <div class="payment-description">Fast & secure checkout</div>
+                                    </div>
+                                </div>
+                                <i class="fas fa-check-circle payment-check"></i>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <h4><i class="fas fa-receipt"></i> Order Summary</h4>
+                        <div id="orderItems"></div>
+                        <div class="summary-total">
+                            <strong>Total: €<span id="orderTotal">0.00</span></strong>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-truck"></i>
+                            <span>Estimated delivery: 2-3 hours</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="place-order-btn">
+                        <i class="fas fa-check-circle"></i>
+                        Place Order
+                    </button>
+
+                    <div class="secure-checkout">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure checkout - Your information is protected</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="success-modal" id="successModal" style="display: none;">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Order Placed! 🎉</h3>
+                <p>Your order has been confirmed.</p>
+                <p>Order ID: <strong id="orderIdDisplay"></strong></p>
+                <p>We'll deliver within 2-3 hours.</p>
+                <button class="continue-btn" id="continueBtn">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/whatsapp-products.js"></script>
+    <script src="js/whatsapp-chatbot.js"></script>
+    <script src="js/whatsapp-cart.js"></script>
+    <script src="js/whatsapp-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Netlify Configuration File
+
+[build]
+  # Directory to publish (root directory contains index.html and assets)
+  publish = "."
+
+  # Build command (not needed for static site, but we can use it to check)
+  command = "echo 'No build step required for static site'"
+
+  # Functions directory
+  functions = "netlify/functions"
+
+# Redirect API calls to serverless functions
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+# SPA fallback - redirect all other requests to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (you'll set these in Netlify dashboard)
+# OPENAI_API_KEY will be set in Netlify environment variables
+
+[dev]
+  # Local development settings
+  command = "npm start"
+  port = 3000
+  targetPort = 3000
+  autoLaunch = false
